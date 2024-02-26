@@ -1,5 +1,6 @@
 package com.gypsee.poc.gypsee_poc.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gypsee.poc.gypsee_poc.entity.Alert;
@@ -39,5 +41,10 @@ public class AlertController {
         return ResponseEntity.ok(alertCounts);
     }
 
+	@GetMapping("/alerts/count")
+    public ResponseEntity<List<Object[]>>  getAlertCountByTypeWithinRange(@RequestParam int range) {
+		List<Object[]> a = alertService.getAlertCountByTypeWithinRange(range);
+        return new ResponseEntity<List<Object[]>>(a, HttpStatus.OK);
+    }
 
 }

@@ -30,8 +30,11 @@ public class Driver {
     @Column(name = "km")
     private int km;
     
-  //@OneToMany(mappedBy = "driver")
-    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Alert> alerts;
+	/*
+	 * //@OneToMany(mappedBy = "driver")
+	 * 
+	 * @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL, orphanRemoval =
+	 * true) private List<Alert> alerts;
+	 */
 
 }

@@ -17,7 +17,7 @@ public class AlertService {
 	public AlertService(AlertRepository alertRepository) {
 		this.alertRepository = alertRepository;
 	}
-	
+
 	public Alert saveAlert(Alert alert) {
 		return alertRepository.save(alert);
 		
@@ -30,6 +30,8 @@ public class AlertService {
 		            .collect(Collectors.groupingBy(Alert::getAlertType, Collectors.counting()));
 		}
 	
-	
+	   public List<Object[]> getAlertCountByTypeWithinRange(int range) {
+	        return alertRepository.findAlertCountByTypeWithinRange(range);
+	    }
 
 }

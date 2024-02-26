@@ -32,7 +32,9 @@ public class Alert {
 	 * 
 	 * @JoinColumn(name = "driver_id") private Driver driver;
 	 */
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "driver_id", referencedColumnName = "id")
+    //@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    //@JoinColumn(name = "driver_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "driver_id")
     private Driver driver;
 }
